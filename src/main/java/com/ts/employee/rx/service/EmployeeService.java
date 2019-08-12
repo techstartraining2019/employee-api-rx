@@ -1,6 +1,7 @@
 package com.ts.employee.rx.service;
 
 import com.ts.employee.rx.entities.Employee;
+import com.ts.employee.rx.entities.EmployeeCapped;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,6 +22,5 @@ public interface EmployeeService {
 
   public Mono<Employee> updateEmployee(Employee emp);
 
-
-
+  public Flux<EmployeeCapped> findEmployeesBy();
 }

@@ -64,6 +64,15 @@ public class EmployeeController {
 
   }
 
+  /*
+   * @DeleteMapping("/api/employee/delete/{empId}") public Mono<Void>
+   * deleteEmployeeById(@PathVariable(name = "empId") Long empId) { return
+   * employeeService.deleteByEmpId(empId);
+   * 
+   * 
+   * }
+   */
+
   @PutMapping("/api/employee/update")
   public Mono<ResponseEntity<Employee>> updateEmployee(@Valid @RequestBody Employee emp) {
     return employeeService.getEmployeeById(emp.getId()).flatMap(existingEmp -> {

@@ -3,6 +3,8 @@ package com.ts.employee.rx.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ts.employee.rx.entities.Employee;
+import com.ts.employee.rx.entities.EmployeeCapped;
+import com.ts.employee.rx.repository.EmployeeCappedRepository;
 import com.ts.employee.rx.repository.EmployeeRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -14,6 +16,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Autowired
   private EmployeeRepository employeeRepository;
+
+  @Autowired
+  private EmployeeCappedRepository employeeCappedRepository;
 
   @Override
   public Flux<Employee> findAll() {
@@ -49,5 +54,12 @@ public class EmployeeServiceImpl implements EmployeeService {
   public Mono<Void> deleteEmployee(Employee emp) {
     return employeeRepository.delete(emp);
   }
+
+  @Override
+  public Flux<EmployeeCapped> findEmployeesBy() {
+    return employeeCappedRepository.findEmployeesBy();
+  }
+
+
 
 }

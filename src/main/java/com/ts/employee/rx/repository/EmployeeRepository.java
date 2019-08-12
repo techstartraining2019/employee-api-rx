@@ -10,4 +10,6 @@ public interface EmployeeRepository extends ReactiveCrudRepository<Employee, Str
 
   Flux<Employee> findByEmail(String email);
 
+  // Mono<Void> deleteByEmpId(Long empId);
+
 }
